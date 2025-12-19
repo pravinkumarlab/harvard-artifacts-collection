@@ -1,6 +1,5 @@
-streamlit
-pandas
-requests
-sqlalchemy
-numpy
-streamlit-option-menu
+streamlit>=1.30
+pandas>=2.0
+requests>=2.31
+sqlalchemy>=2.0
+streamlit-option-menu>=0.3.6

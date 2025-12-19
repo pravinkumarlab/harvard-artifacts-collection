@@ -1,5 +1,5 @@
-
 from sqlalchemy import create_engine, text
+
 engine = create_engine("sqlite:///harvard.db")
 
 def init_db():
@@ -18,7 +18,8 @@ def init_db():
             classification TEXT,
             accessionyear INTEGER,
             accessionmethod TEXT
-        )"""))
+        )
+        """))
 
         conn.execute(text("""
         CREATE TABLE IF NOT EXISTS artifact_media (
@@ -29,7 +30,8 @@ def init_db():
             rank INTEGER,
             datebegin INTEGER,
             dateend INTEGER
-        )"""))
+        )
+        """))
 
         conn.execute(text("""
         CREATE TABLE IF NOT EXISTS artifact_colors (
@@ -39,7 +41,8 @@ def init_db():
             hue TEXT,
             percent REAL,
             css3 TEXT
-        )"""))
+        )
+        """))
 
-def insert_dataframe(df, table):
-    df.to_sql(table, engine, if_exists="append", index=False)
+def insert_dataframe(df, table_name):
+    df.to_sql(table_name, engine, if_exists="append", index=False)

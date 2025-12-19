@@ -1,4 +1,3 @@
-
 import requests
 import pandas as pd
 from config import API_KEY
@@ -6,7 +5,9 @@ from config import API_KEY
 BASE_URL = "https://api.harvardartmuseums.org/object"
 
 def fetch_objects(classification, target=2500):
-    page, records = 1, []
+    page = 1
+    records = []
+
     while len(records) < target:
         params = {
             "apikey": API_KEY,
@@ -16,13 +17,16 @@ def fetch_objects(classification, target=2500):
         }
         response = requests.get(BASE_URL, params=params).json()
         records.extend(response.get("records", []))
+
         if page >= response["info"]["pages"]:
             break
         page += 1
+
     return records[:target]
 
 def transform(records):
     meta, media, colors = [], [], []
+
     for r in records:
         meta.append({
             "id": r.get("id"),
@@ -58,4 +62,5 @@ def transform(records):
                 "percent": c.get("percent"),
                 "css3": c.get("css3")
             })
+
     return pd.DataFrame(meta), pd.DataFrame(media), pd.DataFrame(colors)
