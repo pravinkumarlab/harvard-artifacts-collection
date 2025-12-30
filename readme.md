@@ -177,5 +177,7 @@ harvard-artifacts-project/
 ---
 
 ## 👤 Author
-PRAVINKUMAR S
+PRAVINKUMAR S.
 LinkedIn: www.linkedin.com/in/pravinkumar-s-49b23b231
+
+---
