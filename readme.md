@@ -175,18 +175,3 @@ harvard-artifacts-project/
 ```
 
 ---
-
-## ✅ Project Highlights
-- End-to-end ETL implementation
-- API pagination for large datasets
-- Normalized relational database design
-- 30 SQL queries (20 mandatory + 10 custom)
-- Interactive Streamlit dashboard
-- Evaluation-ready and industry-aligned
-
----
-
-## 🎤 One-Line Summary (For Viva / Interview)
-
-> *This project implements an end-to-end ETL and SQL analytics pipeline on the Harvard Art Museums dataset, transforming complex API data into structured insights through a relational database and an interactive Streamlit dashboard.*
-
