@@ -1,8 +1,7 @@
 import streamlit as st
 
 def show_home():
-    st.markdown("## 🏛️ Harvard’s Artifacts Collection")
-    st.markdown("### ETL | SQL Analytics | Streamlit Dashboard")
+    st.markdown("### Harvard’s Artifacts Collection: ETL, SQL Analytics & Streamlit Showcase")
     st.markdown("---")
 
     st.markdown("""

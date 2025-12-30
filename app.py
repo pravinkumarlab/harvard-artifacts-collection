@@ -164,24 +164,15 @@ elif selected == "Queries":
         if st.session_state.db_ready:
 
             st.markdown("## 🏺 Artifacts Metadata")
-            meta_db = pd.read_sql(
-                "SELECT * FROM artifact_metadata ORDER BY classification",
-                engine
-            )
+            meta_db = pd.read_sql("SELECT * FROM artifact_metadata ORDER BY classification",engine)
             st.dataframe(meta_db, use_container_width=True)
 
             st.markdown("## 🖼️ Artifacts Media")
-            media_db = pd.read_sql(
-                "SELECT * FROM artifact_media",
-                engine
-            )
+            media_db = pd.read_sql("SELECT * FROM artifact_media",engine)
             st.dataframe(media_db, use_container_width=True)
 
             st.markdown("## 🎨 Artifacts Colours")
-            colors_db = pd.read_sql(
-                "SELECT * FROM artifact_colors",
-                engine
-            )
+            colors_db = pd.read_sql("SELECT * FROM artifact_colors",engine)
             st.dataframe(colors_db, use_container_width=True)
 
     # ─────────────────────────────────────────
@@ -202,20 +193,8 @@ elif selected == "Queries":
             if query_name == "14. Colors by Object ID":
 
                 # ─── Fetch all existing artifact IDs
-                artifact_ids = pd.read_sql(
-                    "SELECT DISTINCT objectid FROM artifact_colors ORDER BY objectid",
-                    engine
-                )
-
-                st.markdown("### Available Artifact IDs")
-                st.dataframe(artifact_ids, height=200)
-
-                object_id = st.number_input(
-                    "Enter Artifact ID from the above list",
-                    min_value=int(artifact_ids["objectid"].min()),
-                    max_value=int(artifact_ids["objectid"].max()),
-                    step=1
-                )
+                artifact_ids = pd.read_sql("SELECT DISTINCT objectid FROM artifact_colors ORDER BY objectid",engine)
+                object_id = st.selectbox("Select Artifact ID",artifact_ids["objectid"])
 
                 if st.button("Run Query"):
                     query = QUERIES[query_name].format(object_id)
